@@ -14,7 +14,6 @@ def newton_raphson_vectorized(x, y, theta, max_iterations = 20 ):
         probs = sigmoid(arg)
         J_diff_1 = (-1 / mm)*x.T.dot((probs*y))
         J_diff_2 = (1/mm)*(x.transpose().dot(np.diag((probs)*(1-probs))).dot(x))
-        print(J_diff_2)
         theta = theta - np.asarray(np.linalg.inv(np.mat(J_diff_2))).dot(J_diff_1)
 
     return theta
